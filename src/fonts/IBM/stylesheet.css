@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'IBM Plex Sans';
+    src: url('IBMPlexSans.eot');
+    src: url('IBMPlexSans.eot?#iefix') format('embedded-opentype'),
+        url('IBMPlexSans.woff2') format('woff2'),
+        url('IBMPlexSans.woff') format('woff'),
+        url('IBMPlexSans.ttf') format('truetype'),
+        url('IBMPlexSans.svg#IBMPlexSans') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

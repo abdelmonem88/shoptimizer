@@ -1,0 +1,10 @@
+used technologies:
+ - React
+ - Redux
+ - React-Redux
+ - Redux-Thunk
+ - Bootstrap
+ - React-Router-Dom
+ - React-Icons
+ - Styled-Components
+ - Axios
