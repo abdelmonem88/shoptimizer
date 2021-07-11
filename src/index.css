@@ -88,3 +88,9 @@ a {
  text-align: center;
  margin: auto;
 }
+
+@media (max-width: 767px) {
+ .section-title p {
+  width: 100% !important;
+ }
+}

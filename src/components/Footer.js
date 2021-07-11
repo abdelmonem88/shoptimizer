@@ -5,13 +5,13 @@ function Footer() {
  return (
   <Wrapper>
    <footer>
-    <h5>
-     All right reserved to
+    <h6>
+     All rights reserved to
      <span>
       <BiCopyright />
      </span>
      Shoptimizer{`${new Date().getFullYear()}`}
-    </h5>
+    </h6>
    </footer>
   </Wrapper>
  );
