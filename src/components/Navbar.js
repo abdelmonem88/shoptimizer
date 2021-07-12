@@ -95,6 +95,9 @@ function Navbar({ setToggleSidebar }) {
          <div className='list__link'>
           <Link to='/about'>About</Link>
          </div>
+         <div className='list__link'>
+          <Link to='/contact'>Contact</Link>
+         </div>
         </div>
        </div>
        <div className='cart-details'>

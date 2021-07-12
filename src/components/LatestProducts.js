@@ -7,6 +7,7 @@ import Product from "./Product";
 function LatestProducts() {
  const dispatch = useDispatch();
  const products = useSelector((state) => state.products);
+ console.log(products);
  const latestProducts = products.filter(
   (product) => JSON.parse(product.fields.latest) === true
  );

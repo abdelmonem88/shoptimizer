@@ -3,6 +3,7 @@ import Home from "./components/pages/Home";
 import MenProducts from "./components/pages/MenProducts";
 import WomenProducts from "./components/pages/WomenProducts";
 import About from "./components/pages/About";
+import Contact from "./components/pages/Contact";
 
 function App() {
  return (
@@ -13,6 +14,7 @@ function App() {
      <Route path='/men' component={MenProducts} />
      <Route path='/women' component={WomenProducts} />
      <Route path='/about' component={About} />
+     <Route path='/contact' component={Contact} />
     </Switch>
    </BrowserRouter>
   </div>
