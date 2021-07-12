@@ -36,7 +36,7 @@ const Wrraper = styled.div`
 
   h3 {
    color: #fff;
-   font-size: 2.5vw;
+   font-size: 2.3vw;
   }
 
   form {
@@ -62,10 +62,10 @@ const Wrraper = styled.div`
   }
  }
 
- @media (max-width: 767px) {
+ @media (max-width: 567px) {
   .newsletter {
    h3 {
-    font-size: 3.5vw;
+    font-size: 16px;
    }
   }
  }

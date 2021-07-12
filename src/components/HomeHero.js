@@ -2,7 +2,7 @@ import { CgArrowLongRight } from "react-icons/cg";
 import styled from "styled-components";
 import heroImgae from "../images/hero_girl_optimized_0321.jpg";
 
-function HeroSection() {
+function HomeHero() {
  return (
   <Wrapper>
    <div className='hero'>
@@ -35,7 +35,7 @@ function HeroSection() {
  );
 }
 
-export default HeroSection;
+export default HomeHero;
 
 const Wrapper = styled.div`
  .hero {

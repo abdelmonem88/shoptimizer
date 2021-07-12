@@ -92,6 +92,9 @@ function Navbar({ setToggleSidebar }) {
          <div className='list__link'>
           <Link to='/women'>Women</Link>
          </div>
+         <div className='list__link'>
+          <Link to='/about'>About</Link>
+         </div>
         </div>
        </div>
        <div className='cart-details'>
@@ -117,7 +120,7 @@ function Navbar({ setToggleSidebar }) {
         setToggleSidebar(true);
        }}
       >
-       <GoThreeBars /> Menu
+       <GoThreeBars />
       </div>
       <div className='alt-nav__logo'>
        <img src={Logo} alt='' />
@@ -342,6 +345,14 @@ const Wrapper = styled.div`
  @media (min-width: 992px) {
   .alt-nav {
    display: none;
+  }
+ }
+
+ @media (max-width: 767px) {
+  .alt-nav__logo {
+   img {
+    width: 190px !important;
+   }
   }
  }
 `;

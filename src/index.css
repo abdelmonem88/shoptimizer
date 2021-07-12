@@ -78,6 +78,7 @@ a {
 
 .section-title h2 {
  font-size: 36px;
+ font-weight: 600;
  color: var(--darkColor);
  margin-bottom: 0.75rem;
  text-align: center;
@@ -90,7 +91,12 @@ a {
 }
 
 @media (max-width: 767px) {
+ .section-title h2 {
+  font-size: 26px;
+ }
+
  .section-title p {
-  width: 100% !important;
+  width: 90% !important;
+  font-size: 13px;
  }
 }

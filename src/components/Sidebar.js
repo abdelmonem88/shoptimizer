@@ -24,6 +24,9 @@ function Sidebar({ toggleSidebar, setToggleSidebar }) {
       <li className='sidebar__link'>
        <Link to='/women'>Women</Link>
       </li>
+      <li className='sidebar__link'>
+       <Link to='/about'>About</Link>
+      </li>
      </ul>
      <h6>BROWSE</h6>
      <ul className='btn-wrapper'>

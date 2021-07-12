@@ -22,7 +22,9 @@ function LatestProducts() {
  return (
   <Wrapper>
    <div className='latest py-2'>
-    <h2>Our latest items</h2>
+    <div className='section-title'>
+     <h2>Our latest items</h2>
+    </div>
     <div className='container'>
      <div className='row'>{rendredProducts}</div>
     </div>

@@ -19,22 +19,22 @@ function Brands() {
     </div>
     <div className='container'>
      <div className='row'>
-      <div className='col-lg-2 col-md-4 col-sm-6 text-center mb-3'>
+      <div className='col-4 col-md-2 text-center mb-3'>
        <img src={brand6} alt='' className='img-fluid' />
       </div>
-      <div className='col-lg-2 col-md-4 col-sm-6 text-center mb-3'>
+      <div className='col-4 col-md-2 text-center mb-3'>
        <img src={brand5} alt='' className='img-fluid' />
       </div>
-      <div className='col-lg-2 col-md-4 col-sm-6 text-center mb-3'>
+      <div className='col-4 col-md-2 text-center mb-3'>
        <img src={brand4} alt='' className='img-fluid' />
       </div>
-      <div className='col-lg-2 col-md-4 col-sm-6 text-center mb-3'>
+      <div className='col-4 col-md-2 text-center mb-3'>
        <img src={brand3} alt='' className='img-fluid' />
       </div>
-      <div className='col-lg-2 col-md-4 col-sm-6 text-center mb-3'>
+      <div className='col-4 col-md-2 text-center mb-3'>
        <img src={brand2} alt='' className='img-fluid' />
       </div>
-      <div className='col-lg-2 col-md-4 col-sm-6 text-center mb-3'>
+      <div className='col-4 col-md-2 text-center mb-3'>
        <img src={brand1} alt='' className='img-fluid' />
       </div>
      </div>

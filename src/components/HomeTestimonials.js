@@ -2,7 +2,7 @@ import styled from "styled-components";
 import testimonial1 from "../images/testimonial_01.webp";
 import testimonial2 from "../images/testimonial_02.webp";
 
-function Testimonials() {
+function HomeTestimonials() {
  return (
   <Wrapper>
    <div className='section-border section-pd'>
@@ -52,7 +52,7 @@ function Testimonials() {
  );
 }
 
-export default Testimonials;
+export default HomeTestimonials;
 
 const Wrapper = styled.div`
  .testimonial__item {

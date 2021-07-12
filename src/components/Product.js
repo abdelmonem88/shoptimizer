@@ -149,4 +149,11 @@ const Wrapper = styled.div`
  .product:hover img.second {
   display: block;
  }
+
+ @media (max-width: 767px) {
+  .product .product__btn {
+   opacity: 1;
+   visibility: visible;
+  }
+ }
 `;

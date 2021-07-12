@@ -2,12 +2,12 @@ import { useState } from "react";
 import Navbar from "../Navbar";
 import DiscountBanner from "../DiscountBanner";
 import Sidebar from "../Sidebar";
-import HeroSection from "../HeroSection";
+import HomeHero from "../HomeHero";
 import HomeFeatured from "../HomeFeatured";
 import LatestProducts from "../LatestProducts";
 import NewsLetter from "../NewsLetter";
 import Services from "../Services";
-import Testimonials from "../Testimonials";
+import HomeTestimonials from "../HomeTestimonials";
 import Brands from "../Brands";
 import Footer from "../Footer";
 
@@ -19,12 +19,12 @@ function Home() {
    <Navbar setToggleSidebar={setToggleSidebar} />
    <DiscountBanner />
    <Sidebar toggleSidebar={toggleSidebar} setToggleSidebar={setToggleSidebar} />
-   <HeroSection />
+   <HomeHero />
    <HomeFeatured />
    <LatestProducts />
    <NewsLetter />
    <Services />
-   <Testimonials />
+   <HomeTestimonials />
    <Brands />
    <Footer />
   </div>
