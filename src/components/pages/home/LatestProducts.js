@@ -1,20 +1,12 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts } from "../actions";
+import { getProducts } from "../../../actions";
 import styled from "styled-components";
-import Product from "./Product";
+import ProductsList from "../../ProductsList";
 
 function LatestProducts() {
  const dispatch = useDispatch();
  const products = useSelector((state) => state.products);
- console.log(products);
- const latestProducts = products.filter(
-  (product) => JSON.parse(product.fields.latest) === true
- );
-
- const rendredProducts = latestProducts.map((product) => {
-  return <Product key={product.id} {...product} col_lg={3} />;
- });
 
  useEffect(() => {
   dispatch(getProducts());
@@ -25,9 +17,7 @@ function LatestProducts() {
    <div className='latest py-2'>
     <div className='section-title'>
      <h2>Our latest items</h2>
-    </div>
-    <div className='container'>
-     <div className='row'>{rendredProducts}</div>
+     <ProductsList products={products} />
     </div>
    </div>
   </Wrapper>

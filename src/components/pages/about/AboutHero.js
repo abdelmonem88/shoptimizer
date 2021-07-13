@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import heroBackground from "../images/about-bg.webp";
+import heroBackground from "../../../images/about-bg.webp";
 
 function AboutHero() {
  return (

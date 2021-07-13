@@ -1,6 +1,6 @@
 import { CgArrowLongRight } from "react-icons/cg";
 import styled from "styled-components";
-import heroImgae from "../images/hero_girl_optimized_0321.jpg";
+import heroImgae from "../../../images/hero_girl_optimized_0321.jpg";
 
 function HomeHero() {
  return (

@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import team1 from "../images/team1.webp";
-import team2 from "../images/team2.webp";
-import team3 from "../images/team3.webp";
-import team4 from "../images/team4.webp";
+import team1 from "../../../images/team1.webp";
+import team2 from "../../../images/team2.webp";
+import team3 from "../../../images/team3.webp";
+import team4 from "../../../images/team4.webp";
 
 function Team() {
  return (

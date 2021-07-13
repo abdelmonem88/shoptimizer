@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import formatPrice from "../helpers/formatPrice";
 import { useHistory } from "react-router-dom";
-import { BsFillStarFill, BsStar } from "react-icons/bs";
+import Stars from "./Stars";
 
 function Product({ id, fields, col_lg }) {
  const history = useHistory();
@@ -9,13 +9,6 @@ function Product({ id, fields, col_lg }) {
  const oldPrice = fields.oldPrice > price ? fields.oldPrice : "";
  const firstImage = fields.images[0].thumbnails.large.url;
  const secondImage = fields.images[1].thumbnails.large.url;
- const productStars = Array.from({ length: 5 }, (_, index) => {
-  return (
-   <span key={index}>
-    {stars >= index + 1 ? <BsFillStarFill /> : <BsStar />}
-   </span>
-  );
- });
 
  return (
   <>
@@ -38,7 +31,9 @@ function Product({ id, fields, col_lg }) {
      </div>
      <h6 className='product__category'>{category}</h6>
      <h5 className='product__name'>{name}</h5>
-     <h5 className='product__stars'>{productStars}</h5>
+     <h5 className='product__stars'>
+      <Stars starsCount={stars} />
+     </h5>
      <h6 className='product__prices mb-3'>
       {oldPrice !== "" ? (
        <span className='old-price'>{formatPrice(oldPrice)}</span>

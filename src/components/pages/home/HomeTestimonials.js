@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import testimonial1 from "../images/testimonial_01.webp";
-import testimonial2 from "../images/testimonial_02.webp";
+import testimonial1 from "../../../images/testimonial_01.webp";
+import testimonial2 from "../../../images/testimonial_02.webp";
 
 function HomeTestimonials() {
  return (

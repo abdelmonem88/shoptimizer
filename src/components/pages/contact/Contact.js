@@ -1,10 +1,10 @@
 import { useState } from "react";
-import Navbar from "../Navbar";
-import DiscountBanner from "../DiscountBanner";
-import Sidebar from "../Sidebar";
-import Footer from "../Footer";
+import Navbar from "../../Navbar";
+import DiscountBanner from "../../DiscountBanner";
+import Sidebar from "../../Sidebar";
+import Footer from "../../Footer";
 import styled from "styled-components";
-import questions from "../../helpers/questions";
+import questions from "../../../helpers/questions";
 
 function Contact() {
  const [toggleSidebar, setToggleSidebar] = useState(false);

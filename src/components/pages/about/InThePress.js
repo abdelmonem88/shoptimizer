@@ -1,4 +1,4 @@
-import press from "../images/press.webp";
+import press from "../../../images/press.webp";
 
 function InThePress() {
  return (

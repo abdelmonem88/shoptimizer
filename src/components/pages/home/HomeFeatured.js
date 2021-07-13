@@ -1,6 +1,6 @@
-import featured1 from "../images/home_feature_1.jpg";
-import featured2 from "../images/home_feature_2.jpg";
-import featured3 from "../images/home_feature_3.jpg";
+import featured1 from "../../../images/home_feature_1.jpg";
+import featured2 from "../../../images/home_feature_2.jpg";
+import featured3 from "../../../images/home_feature_3.jpg";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 

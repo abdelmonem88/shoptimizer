@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import summary1 from "../images/about_01.webp";
-import summary2 from "../images/about_02.webp";
-import summary3 from "../images/about_03.webp";
+import summary1 from "../../../images/about_01.webp";
+import summary2 from "../../../images/about_02.webp";
+import summary3 from "../../../images/about_03.webp";
 
 function AboutSummary() {
  return (

@@ -1,9 +1,9 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import Home from "./components/pages/Home";
-import MenProducts from "./components/pages/MenProducts";
-import WomenProducts from "./components/pages/WomenProducts";
-import About from "./components/pages/About";
-import Contact from "./components/pages/Contact";
+import Home from "./components/pages/home/Home";
+import MenProducts from "./components/pages/men/MenProducts";
+import WomenProducts from "./components/pages/women/WomenProducts";
+import About from "./components/pages/about/About";
+import Contact from "./components/pages/contact/Contact";
 
 function App() {
  return (

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import reviewsBackground from "../images/reviews-bg.webp";
-import review1 from "../images/reviews01.jpg";
-import review2 from "../images/reviews02.jpg";
+import reviewsBackground from "../../../images/reviews-bg.webp";
+import review1 from "../../../images/reviews01.jpg";
+import review2 from "../../../images/reviews02.jpg";
 
 function Reviews() {
  return (

@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import brand1 from "../images/brand_01.webp";
-import brand2 from "../images/brand_02.webp";
-import brand3 from "../images/brand_03.webp";
-import brand4 from "../images/brand_04.webp";
-import brand5 from "../images/brand_05.webp";
-import brand6 from "../images/brand_06.webp";
+import brand1 from "../../../images/brand_01.webp";
+import brand2 from "../../../images/brand_02.webp";
+import brand3 from "../../../images/brand_03.webp";
+import brand4 from "../../../images/brand_04.webp";
+import brand5 from "../../../images/brand_05.webp";
+import brand6 from "../../../images/brand_06.webp";
 
 function Brands() {
  return (
