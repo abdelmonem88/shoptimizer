@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getProducts } from "../../../actions";
 import Navbar from "../../Navbar";
 import DiscountBanner from "../../DiscountBanner";
 import Sidebar from "../../Sidebar";
@@ -10,9 +13,21 @@ import Services from "../../Services";
 import HomeTestimonials from "./HomeTestimonials";
 import Brands from "./Brands";
 import Footer from "../../Footer";
+import Loading from "../../Loading";
 
 function Home() {
  const [toggleSidebar, setToggleSidebar] = useState(false);
+
+ const dispatch = useDispatch();
+ const products = useSelector((state) => state.products);
+
+ useEffect(() => {
+  dispatch(getProducts());
+ }, [dispatch]);
+
+ if (products.length < 1) {
+  return <Loading />;
+ }
 
  return (
   <div>

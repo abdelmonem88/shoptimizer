@@ -50,7 +50,9 @@ function Navbar({ setToggleSidebar }) {
      <div className='container'>
       <div className='content'>
        <div className='logo'>
-        <img src={Logo} alt='' width='300px' />
+        <Link to='/'>
+         <img src={Logo} alt='' width='300px' />
+        </Link>
        </div>
        <div className='list'>
         <button className='text-center'>

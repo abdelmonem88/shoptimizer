@@ -5,7 +5,7 @@ import Stars from "./Stars";
 
 function Product({ id, fields, col_lg }) {
  const history = useHistory();
- const { name, category, discount, price, stars } = fields;
+ const { name, category, discount, stock, price, stars } = fields;
  const oldPrice = fields.oldPrice > price ? fields.oldPrice : "";
  const firstImage = fields.images[0].thumbnails.large.url;
  const secondImage = fields.images[1].thumbnails.large.url;
@@ -25,6 +25,7 @@ function Product({ id, fields, col_lg }) {
      ) : (
       ""
      )}
+     {stock === 0 && <h6 className='out-of-stock'>Out of stock</h6>}
      <div className='product__img mb-3'>
       <img src={firstImage} alt='' className='img-fluid first' />
       <img src={secondImage} alt='' className='img-fluid second' />
@@ -72,6 +73,18 @@ const Wrapper = styled.div`
   left: 8px;
   top: 5px;
  }
+
+ .out-of-stock {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 10px;
+  font-size: 13px;
+  padding: 0 0.25rem;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+ }
+
  .product__img {
   transition: var(--transition);
 

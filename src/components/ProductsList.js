@@ -1,19 +1,11 @@
 import Product from "./Product";
 
-function ProductsList({ products }) {
- const latestProducts = products.filter(
-  (product) => JSON.parse(product.fields.latest) === true
- );
-
- const rendredProducts = latestProducts.map((product) => {
-  return <Product key={product.id} {...product} col_lg={3} />;
+function ProductsList({ products, col_lg }) {
+ const rendredProducts = products.map((product) => {
+  return <Product key={product.id} {...product} col_lg={col_lg} />;
  });
 
- return (
-  <div className='container'>
-   <div className='row'>{rendredProducts}</div>
-  </div>
- );
+ return <>{rendredProducts}</>;
 }
 
 export default ProductsList;
