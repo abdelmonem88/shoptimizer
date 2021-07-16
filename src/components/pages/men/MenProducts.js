@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../../actions";
+import { GoSettings } from "react-icons/go";
 import Loading from "../../Loading";
 import Navbar from "../../Navbar";
 import DiscountBanner from "../../DiscountBanner";
@@ -10,12 +11,20 @@ import Filters from "../../Filters";
 import ProductsList from "../../ProductsList";
 import styled from "styled-components";
 import menBannerImg from "../../../images/men_banner.webp";
+import FiltersSidebar from "../../FiltersSidebar";
+import SortProducts from "../../SortProducts";
 
 function MenProducts() {
  const [toggleSidebar, setToggleSidebar] = useState(false);
+ const [toggleFiltersSidebar, setToggleFiltersSidebar] = useState(false);
  const dispatch = useDispatch();
  const products = useSelector((state) => state.products);
- const [filteredProducts, setFilteredProducts] = useState(products);
+ const menProducts = products.filter((product) => {
+  return JSON.parse(product.fields.men) === true;
+ });
+
+ console.log(menProducts);
+ const [filteredProducts, setFilteredProducts] = useState(menProducts);
 
  useEffect(() => {
   dispatch(getProducts());
@@ -30,13 +39,21 @@ function MenProducts() {
    <Navbar setToggleSidebar={setToggleSidebar} />
    <DiscountBanner />
    <Sidebar toggleSidebar={toggleSidebar} setToggleSidebar={setToggleSidebar} />
+   <FiltersSidebar
+    products={menProducts}
+    filteredProducts={filteredProducts}
+    filterProducts={setFilteredProducts}
+    toggleFiltersSidebar={toggleFiltersSidebar}
+    setToggleFiltersSidebar={setToggleFiltersSidebar}
+    men
+   />
    <div className='men-products pt-5'>
     <div className='container'>
      <div className='row justify-content-between'>
       <div className='col-md-2 filters'>
        <Filters
         filteredProducts={filteredProducts}
-        products={products}
+        products={menProducts}
         filterProducts={setFilteredProducts}
         men={true}
        />
@@ -59,6 +76,24 @@ function MenProducts() {
          </div>
         </div>
        </div>
+       <div className='row'>
+        <div className='col-12 filters-btn'>
+         <div
+          className='content'
+          onClick={() => {
+           setToggleFiltersSidebar(true);
+          }}
+         >
+          <span className='filters-icon'>{<GoSettings />}</span>
+          <h6>Filters</h6>
+         </div>
+        </div>
+       </div>
+       <SortProducts
+        products={menProducts}
+        filteredProducts={filteredProducts}
+        FilterProducts={setFilteredProducts}
+       />
        <div className='row'>
         <ProductsList products={filteredProducts} col_lg={4} />
        </div>
@@ -88,7 +123,7 @@ const Wrapper = styled.div`
  }
 
  .products__title {
-  font-size: 34px;
+  font-size: 40px;
   font-weight: 600;
   margin-bottom: 1.25rem;
  }
@@ -112,16 +147,42 @@ const Wrapper = styled.div`
   padding: 16px;
  }
 
+ .filters-btn {
+  padding: 0 28px;
+  margin-bottom: 1rem;
+  display: none;
+
+  .content {
+   padding: 0.25rem 1rem;
+   display: flex;
+   align-items: center;
+   box-shadow: 0 0 5px #eee;
+   cursor: pointer;
+  }
+
+  .filters-icon {
+   margin-right: 0.5rem;
+   font-size: 20px;
+   color: var(--darkColor);
+  }
+ }
+
+ 
+ }
+
  @media (max-width: 767px) {
  }
 
  @media (max-width: 991px) {
+  .banner__content {
+   flex-flow: column-reverse;
+  }
+
   .filters {
    display: none;
   }
 
-  .banner__content {
-   flex-flow: column-reverse;
+  .filters-btn {
+   display: block;
   }
- }
 `;

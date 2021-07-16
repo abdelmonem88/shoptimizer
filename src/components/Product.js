@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import formatPrice from "../helpers/formatPrice";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Stars from "./Stars";
 
 function Product({ id, fields, col_lg }) {
@@ -26,10 +26,12 @@ function Product({ id, fields, col_lg }) {
       ""
      )}
      {stock === 0 && <h6 className='out-of-stock'>Out of stock</h6>}
-     <div className='product__img mb-3'>
-      <img src={firstImage} alt='' className='img-fluid first' />
-      <img src={secondImage} alt='' className='img-fluid second' />
-     </div>
+     <Link to={`products/${id}`}>
+      <div className='product__img mb-3'>
+       <img src={firstImage} alt='' className='img-fluid first' />
+       <img src={secondImage} alt='' className='img-fluid second' />
+      </div>
+     </Link>
      <h6 className='product__category'>{category}</h6>
      <h5 className='product__name'>{name}</h5>
      <h5 className='product__stars'>

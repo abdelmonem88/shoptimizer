@@ -21,6 +21,8 @@ function Home() {
  const dispatch = useDispatch();
  const products = useSelector((state) => state.products);
 
+ window.scroll(0, 0);
+
  useEffect(() => {
   dispatch(getProducts());
  }, [dispatch]);

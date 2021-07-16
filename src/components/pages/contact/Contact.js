@@ -10,7 +10,7 @@ function Contact() {
  const [toggleSidebar, setToggleSidebar] = useState(false);
  const [questionIndex, setQuestionIndex] = useState(null);
 
- console.log(questionIndex);
+ window.scroll(0, 0);
 
  return (
   <Wrapper>
@@ -205,6 +205,8 @@ const Wrapper = styled.div`
    width: 100%;
    border: 1px solid #ccc;
    padding: 0.25rem;
+   outline: none;
+   border: 1px solid var(--orangeColor);
   }
 
   .form__name,

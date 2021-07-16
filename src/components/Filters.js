@@ -165,14 +165,14 @@ const Wrapper = styled.div`
   width: 100%;
   background: var(--orangeColor);
   border-radius: 20px;
-  height: 8px;
+  height: 5px;
   position: relative;
  }
 
  .filter__item.price input::-webkit-slider-thumb {
   -webkit-appearance: none;
-  width: 24px;
-  height: 24px;
+  width: 21px;
+  height: 21px;
   border-radius: 50%;
   background-color: transparent;
   box-shadow: 0 0 5px #bbb;
@@ -183,9 +183,9 @@ const Wrapper = styled.div`
  .filter__item.price input:before {
   content: "";
   position: absolute;
-  width: 24px;
-  height: 24px;
-  top: -7px;
+  width: 21px;
+  height: 21px;
+  top: -8px;
   left: 0px;
   background-color: transparent;
   border-radius: 50%;
