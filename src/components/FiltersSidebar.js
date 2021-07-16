@@ -1,7 +1,5 @@
 import { AiOutlineClose } from "react-icons/ai";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import Filters from "./Filters";
 import { useEffect, useState } from "react";
 
 function Sidebar({
@@ -20,6 +18,8 @@ function Sidebar({
      if (product.fields.men === "true") {
       return product.fields.category;
      }
+
+     return null;
     })
     .filter((category) => category !== undefined),
   ]),
@@ -33,6 +33,7 @@ function Sidebar({
      if (product.fields.women === "true") {
       return product.fields.category;
      }
+     return null;
     })
     .filter((category) => category !== undefined),
   ]),

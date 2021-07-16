@@ -35,6 +35,7 @@ function SortProducts({ products, filteredProducts, FilterProducts }) {
  useEffect(() => {
   sortProdcuts(sort);
   FilterProducts(sortedProducts);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
  }, [sort, FilterProducts]);
 
  return (
