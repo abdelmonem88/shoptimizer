@@ -10,6 +10,7 @@ function Filters({ products, filterProducts, men, filteredProducts }) {
      if (product.fields.men === "true") {
       return product.fields.category;
      }
+     return null;
     })
     .filter((category) => category !== undefined),
   ]),
@@ -23,6 +24,7 @@ function Filters({ products, filterProducts, men, filteredProducts }) {
      if (product.fields.women === "true") {
       return product.fields.category;
      }
+     return null;
     })
     .filter((category) => category !== undefined),
   ]),
