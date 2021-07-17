@@ -74,10 +74,14 @@ function SingelProduct() {
         <h2 className='product__name'>{name}</h2>
         <div className='product__price'>
          <div className='prices'>
-          <span className='old-price'>{formatPrice(oldPrice)}</span>
+          {discount ? (
+           <span className='old-price'>{formatPrice(oldPrice)}</span>
+          ) : null}
           <span className='current-price'>{formatPrice(price)}</span>
          </div>
-         <div className='product__discount'>-{discount * 100}%</div>
+         {discount ? (
+          <div className='product__discount'>-{discount * 100}%</div>
+         ) : null}
         </div>
         <p className='product__description'>{description}</p>
         <div className='product__stars'>
