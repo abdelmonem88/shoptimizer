@@ -1,7 +1,7 @@
 import { GET_PRODUCTS } from "../actions/types";
 
-// eslint-disable-next-line
-export default (state = [], action) => {
+
+const productsReducer = (state = [], action) => {
  switch (action.type) {
   case GET_PRODUCTS:
    return [...action.payload];
@@ -9,3 +9,5 @@ export default (state = [], action) => {
    return state;
  }
 };
+
+export default productsReducer;

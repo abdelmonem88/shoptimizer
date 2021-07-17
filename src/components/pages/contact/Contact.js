@@ -10,8 +10,6 @@ function Contact() {
  const [toggleSidebar, setToggleSidebar] = useState(false);
  const [questionIndex, setQuestionIndex] = useState(null);
 
- window.scroll(0, 0);
-
  return (
   <Wrapper>
    <Navbar setToggleSidebar={setToggleSidebar} />

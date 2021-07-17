@@ -23,7 +23,6 @@ function MenProducts() {
   return JSON.parse(product.fields.men) === true;
  });
 
- console.log(menProducts);
  const [filteredProducts, setFilteredProducts] = useState(menProducts);
 
  useEffect(() => {

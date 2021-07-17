@@ -91,6 +91,12 @@ a {
  margin: auto;
 }
 
+.hr {
+ width: 100%;
+ border-top: 1px solid #ddd;
+ margin: 1rem 0;
+}
+
 @media (max-width: 767px) {
  .section-title h2 {
   font-size: 26px;
@@ -101,5 +107,3 @@ a {
   font-size: 13px;
  }
 }
-
-

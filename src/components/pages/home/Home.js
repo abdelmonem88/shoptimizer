@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../../../actions";
 import Navbar from "../../Navbar";
@@ -25,6 +24,10 @@ function Home() {
 
  useEffect(() => {
   dispatch(getProducts());
+
+  return () => {
+   dispatch(getProducts());
+  };
  }, [dispatch]);
 
  if (products.length < 1) {

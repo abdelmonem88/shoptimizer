@@ -5,7 +5,7 @@ import WomenProducts from "./components/pages/women/WomenProducts";
 import About from "./components/pages/about/About";
 import Contact from "./components/pages/contact/Contact";
 import Error from "./components/pages/Error";
-import SingelProduct from "./components/pages/SingelProduct";
+import SingelProduct from "./components/pages/singleProduct/SingelProduct";
 import Cart from "./components/pages/cart/Cart";
 
 function App() {

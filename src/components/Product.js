@@ -109,16 +109,6 @@ const Wrapper = styled.div`
   text-transform: capitalize;
  }
 
- .product__stars {
-  margin-bottom: 0.25rem;
-
-  svg {
-   color: #ffb900;
-   font-size: 14px;
-   margin-right: 2px;
-  }
- }
-
  .product__prices {
   .price {
    color: var(--orangeColor);
