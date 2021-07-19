@@ -304,10 +304,11 @@ const Wrapper = styled.div`
     }
 
     .count {
-     font-size: 13px;
+     font-size: 14px;
      position: absolute;
-     top: 14px;
-     left: 10.5px;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
     }
    }
   }
@@ -357,13 +358,16 @@ const Wrapper = styled.div`
 
     svg {
      margin-bottom: 0.5rem;
+     font-size: 34px;
     }
 
     .count {
      font-size: 14px;
+     padding-top: 0.25rem;
      position: absolute;
-     top: 14px;
-     left: 8px;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
     }
    }
   }
