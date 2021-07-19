@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
 import { FiCheck } from "react-icons/fi";
 import { MdClose } from "react-icons/md";
 import { BiCheckCircle } from "react-icons/bi";
@@ -12,21 +11,42 @@ import Loading from "../../Loading";
 import formatPrice from "../../../helpers/formatPrice";
 import Stars from "../../Stars";
 import styled from "styled-components";
-import { getProduct } from "../../../actions";
 import AddToCart from "../../AddToCart";
 import trustSymbols from "../../../images/trust-symbols.webp";
+import axios from "axios";
+const URL =
+ "https://clothes-shop-api.netlify.app/.netlify/functions/clothes?id=";
 
 function SingelProduct() {
  const { id } = useParams();
  const [toggleSidebar, setToggleSidebar] = useState(false);
- const dispatch = useDispatch();
- const product = useSelector((state) => state.product);
+ const [loading, setLoading] = useState(true);
  const [mainImage, setMainImage] = useState(0);
+ const [product, setProduct] = useState({});
 
- const { name, discount, price, oldPrice, description, stars, stock, images } =
-  product;
+ /* fetch single product */
+ const fetchProduct = async (url) => {
+  const response = await axios.get(url);
+  setProduct(response.data);
+  setLoading(false);
+ };
 
- console.log(stars);
+ useEffect(() => {
+  fetchProduct(`${URL}${id}`);
+ }, [id]);
+
+ /* fetch single product end */
+
+ if (loading) {
+  return <Loading />;
+ }
+
+ const { name, discount, price, oldPrice, description, stars, stock } =
+  product.fields;
+
+ const image1 = product.fields.images[0].thumbnails.large.url;
+ const image2 = product.fields.images[1].thumbnails.large.url;
+ const images = [image1, image2];
 
  const rendredImages = images
   ? images.map((img, index) => {
@@ -44,17 +64,7 @@ function SingelProduct() {
     })
   : null;
 
- useEffect(() => {
-  dispatch(getProduct(id));
-
-  return () => {
-   dispatch(getProduct(id));
-  };
- }, [dispatch, id]);
-
- if (!images) {
-  return <Loading />;
- }
+ const cartProduct = { id, name, images, price, stock };
 
  return (
   <Wrapper>
@@ -99,7 +109,7 @@ function SingelProduct() {
           </h6>
          )}
         </div>
-        {stock > 0 ? <AddToCart stock={stock} productId={id} /> : null}
+        {stock > 0 ? <AddToCart cartProduct={cartProduct} /> : null}
         <div className='product__shipping'>
          <h6>Free worldwide shipping on all orders over $50.00</h6>
          <h6>

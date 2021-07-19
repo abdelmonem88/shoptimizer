@@ -1,2 +1,4 @@
 export const GET_PRODUCTS = "GET_PRODUCTS";
-export const GET_PRODUCT = "GET_PRODUCT";
+export const ADD_CART_ITEM = "ADD_CART_ITEM";
+export const TOGGLE_CART_ITEM_COUNT = "TOGGLE_CART_ITEM_COUNT";
+export const DELETE_CART_ITEM = "DELETE_CART_ITEM";

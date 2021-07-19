@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState, useRef } from "react";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { IoIosAirplane } from "react-icons/io";
 import { BiUserCircle } from "react-icons/bi";
@@ -9,12 +10,26 @@ import { GoThreeBars } from "react-icons/go";
 import Logo from "../images/logo.webp";
 import LogoSmall from "../images/logo_small.webp";
 import { Link } from "react-router-dom";
+import formatPrice from "../helpers/formatPrice";
+import { useHistory } from "react-router-dom";
 
 function Navbar({ setToggleSidebar }) {
  const [fixedNav, setFixedNav] = useState(false);
 
  let navBottom = useRef();
  let navBottomOffsetTop = null;
+
+ const cart = useSelector((state) => state.cart);
+ const { totalCount, totalPrices } = cart.reduce(
+  (total, item) => {
+   total.totalCount = total.totalCount + item.count;
+   total.totalPrices = total.totalPrices + item.count * item.price;
+   return total;
+  },
+  { totalCount: 0, totalPrices: 0 }
+ );
+
+ const history = useHistory();
 
  useEffect(() => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -104,11 +119,16 @@ function Navbar({ setToggleSidebar }) {
        </div>
        <div className='cart-details'>
         <div className='total-price'>
-         <span>$0.00</span>
+         <span>{formatPrice(totalPrices)}</span>
         </div>
-        <div className='icon'>
+        <div
+         className='icon'
+         onClick={() => {
+          history.push("/cart");
+         }}
+        >
          <BsBag />
-         <span className='count'>0</span>
+         <span className='count'>{totalCount}</span>
         </div>
        </div>
       </div>
@@ -130,9 +150,14 @@ function Navbar({ setToggleSidebar }) {
       <div className='alt-nav__logo'>
        <img src={Logo} alt='' />
       </div>
-      <div className='cart-icon'>
+      <div
+       className='cart-icon'
+       onClick={() => {
+        history.push("/cart");
+       }}
+      >
        <BsBag />
-       <span className='count'>0</span>
+       <span className='count'>{totalCount}</span>
       </div>
      </div>
     </div>
@@ -268,19 +293,21 @@ const Wrapper = styled.div`
    }
 
    .icon {
-    font-size: 30px;
     position: relative;
     color: var(--orangeColor);
+    line-height: 15px;
+    cursor: pointer;
 
     svg {
+     font-size: 34px;
      margin-bottom: 0.5rem;
     }
 
     .count {
-     font-size: 14px;
+     font-size: 13px;
      position: absolute;
      top: 14px;
-     left: 10px;
+     left: 10.5px;
     }
    }
   }
@@ -326,6 +353,7 @@ const Wrapper = styled.div`
     font-size: 30px;
     position: relative;
     color: var(--orangeColor);
+    cursor: pointer;
 
     svg {
      margin-bottom: 0.5rem;
@@ -335,7 +363,7 @@ const Wrapper = styled.div`
      font-size: 14px;
      position: absolute;
      top: 14px;
-     left: 10px;
+     left: 8px;
     }
    }
   }

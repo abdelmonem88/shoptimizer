@@ -1,5 +1,10 @@
 import axios from "axios";
-import { GET_PRODUCTS, GET_PRODUCT } from "./types";
+import {
+ GET_PRODUCTS,
+ ADD_CART_ITEM,
+ TOGGLE_CART_ITEM_COUNT,
+ DELETE_CART_ITEM,
+} from "./types";
 
 const productsURL =
  "https://clothes-shop-api.netlify.app/.netlify/functions/clothes";
@@ -13,11 +18,25 @@ export const getProducts = () => async (dispatch) => {
  });
 };
 
-export const getProduct = (id) => async (dispatch) => {
- const response = await axios.get(`${productsURL}?id=${id}`);
+export const addToCart = (item) => {
+ return {
+  type: ADD_CART_ITEM,
+  payload: item,
+ };
+};
 
- dispatch({
-  type: GET_PRODUCT,
-  payload: response.data,
- });
+export const toggleCartItemCount = (id, value) => {
+
+ return {
+  type: TOGGLE_CART_ITEM_COUNT,
+  payload: { id, value },
+ };
+};
+
+export const deleteCartItem = (id) => {
+
+ return {
+  type: DELETE_CART_ITEM,
+  payload: id,
+ };
 };

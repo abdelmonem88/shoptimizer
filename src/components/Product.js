@@ -2,13 +2,19 @@ import styled from "styled-components";
 import formatPrice from "../helpers/formatPrice";
 import { Link, useHistory } from "react-router-dom";
 import Stars from "./Stars";
+import { addToCart } from "../actions";
+import { useDispatch } from "react-redux";
 
 function Product({ id, fields, col_lg }) {
  const history = useHistory();
+ const dispatch = useDispatch();
  const { name, category, discount, stock, price, stars } = fields;
  const oldPrice = fields.oldPrice > price ? fields.oldPrice : "";
  const firstImage = fields.images[0].thumbnails.large.url;
  const secondImage = fields.images[1].thumbnails.large.url;
+ const images = [firstImage, secondImage];
+ const count = 1;
+ const cartProduct = { id, name, images, price, stock, count };
 
  return (
   <>
@@ -45,9 +51,17 @@ function Product({ id, fields, col_lg }) {
       )}
       <span className='price'>{formatPrice(price)}</span>
      </h6>
-     <button className='btn product__btn' onClick={() => history.push("/cart")}>
-      Add to cart
-     </button>
+     {stock ? (
+      <button
+       className='btn product__btn'
+       onClick={() => {
+        dispatch(addToCart(cartProduct));
+        history.push("/cart");
+       }}
+      >
+       Add to cart
+      </button>
+     ) : null}
     </div>
    </Wrapper>
   </>

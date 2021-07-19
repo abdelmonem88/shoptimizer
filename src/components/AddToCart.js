@@ -1,10 +1,13 @@
 import { useState } from "react";
+import { connect } from "react-redux";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
+import { addToCart } from "../actions";
 
-function AddToCart({ stock, productId }) {
+function AddToCart({ cartProduct, addToCart }) {
  const [count, setCount] = useState(1);
+
  return (
   <Wrapper>
    <div className='product__add'>
@@ -14,7 +17,7 @@ function AddToCart({ stock, productId }) {
       <button
        className='increase'
        onClick={() => {
-        stock > count && setCount(count + 1);
+        cartProduct.stock > count && setCount(count + 1);
        }}
       >
        {<MdKeyboardArrowUp />}
@@ -30,14 +33,21 @@ function AddToCart({ stock, productId }) {
      </div>
     </div>
     <Link to='/cart' className='cart-link'>
-     <button className='btn add-btn'>Add to cart</button>
+     <button
+      className='btn add-btn'
+      onClick={() => {
+       addToCart({ ...cartProduct, count });
+      }}
+     >
+      Add to cart
+     </button>
     </Link>
    </div>
   </Wrapper>
  );
 }
 
-export default AddToCart;
+export default connect(null, { addToCart })(AddToCart);
 
 const Wrapper = styled.div`
  .product__add,
