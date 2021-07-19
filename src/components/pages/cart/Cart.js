@@ -99,25 +99,27 @@ function Cart() {
         })}
        </div>
       </div>
-      <div className='col-md-4 col-12 mb-3'>
-       <div className='cart__totals'>
-        <div className='subtotal'>
-         <span>Subtotal</span>
-         <span>{formatPrice(totalPrices)}</span>
+      {cart.length > 0 ? (
+       <div className='col-md-4 col-12 mb-3'>
+        <div className='cart__totals'>
+         <div className='subtotal'>
+          <span>Subtotal</span>
+          <span>{formatPrice(totalPrices)}</span>
+         </div>
+         <div className='shipping-fees'>
+          <span>Shipping Fees</span>
+          <span>{formatPrice(shipingFees)}</span>
+         </div>
+         <div className='total'>
+          <span>Total</span>
+          <span>{formatPrice(totalPrices + shipingFees)}</span>
+         </div>
         </div>
-        <div className='shipping-fees'>
-         <span>Shipping Fees</span>
-         <span>{formatPrice(shipingFees)}</span>
-        </div>
-        <div className='total'>
-         <span>Total</span>
-         <span>{formatPrice(totalPrices + shipingFees)}</span>
+        <div className='checkout_btn'>
+         <button className='btn'>Proceed to check out</button>
         </div>
        </div>
-       <div className='checkout_btn'>
-        <button className='btn'>Proceed to check out</button>
-       </div>
-      </div>
+      ) : null}
      </div>
     </div>
    </div>
