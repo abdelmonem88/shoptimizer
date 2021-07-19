@@ -276,4 +276,14 @@ const Wrapper = styled.div`
    outline: none;
   }
  }
+
+ @media (max-width: 575px) {
+  .cart {
+   font-size: 13px;
+
+   h6 {
+    font-size: 13px;
+   }
+  }
+ }
 `;

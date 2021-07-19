@@ -1,8 +1,11 @@
 import { CgArrowLongRight } from "react-icons/cg";
 import styled from "styled-components";
 import heroImgae from "../../../images/hero_girl_optimized_0321.jpg";
+import { useHistory } from "react-router-dom";
 
 function HomeHero() {
+ const history = useHistory();
+
  return (
   <Wrapper>
    <div className='hero'>
@@ -16,7 +19,10 @@ function HomeHero() {
           Don't miss out on some very special items at{" "}
           <span>extraordinary</span> sale prices. For a limited time!
          </p>
-         <button className='btn hero__btn mb-4'>
+         <button
+          className='btn hero__btn mb-4'
+          onClick={() => history.push("/men")}
+         >
           Pick up a bargain <CgArrowLongRight />
          </button>
          <h6 className='hero__code'>With code: SUMMERSALE</h6>
@@ -79,5 +85,11 @@ const Wrapper = styled.div`
 
  .hero__btn:hover {
   transform: scale(1.1);
+ }
+
+ @media (max-width: 767px) {
+  .hero__title {
+   font-size: 36px;
+  }
  }
 `;

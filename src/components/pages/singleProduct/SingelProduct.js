@@ -74,8 +74,8 @@ function SingelProduct() {
    <div className='product section-pd'>
     <div className='container'>
      <div className='row'>
-      <div className='col-md-6 col-12 mb-3 row justify-content-center'>
-       <img src={images[mainImage]} alt='' />
+      <div className='col-md-6 col-12 mb-3'>
+       <img src={images[mainImage]} alt='' className='img-fluid' />
        <div className='product__images'>{rendredImages}</div>
       </div>
       <div className='col-md-6 col-12 mb-3'>
@@ -251,6 +251,7 @@ const Wrapper = styled.div`
   padding: 1rem 1.5rem;
 
   .heading {
+   font-size: 14px;
    position: absolute;
    padding: 0 0.5rem;
    left: 50%;
@@ -258,6 +259,7 @@ const Wrapper = styled.div`
    top: -11px;
    background-color: #f4f4f4;
    font-weight: 600;
+   width: 190px;
   }
  }
 `;
