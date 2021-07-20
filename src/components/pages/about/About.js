@@ -12,7 +12,6 @@ import Footer from "../../Footer";
 function About() {
  const [toggleSidebar, setToggleSidebar] = useState(false);
 
- window.scroll(0, 0);
 
  return (
   <div>

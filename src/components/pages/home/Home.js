@@ -13,9 +13,11 @@ import HomeTestimonials from "./HomeTestimonials";
 import Brands from "./Brands";
 import Footer from "../../Footer";
 import Loading from "../../Loading";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Home() {
  const [toggleSidebar, setToggleSidebar] = useState(false);
+ const { isLoading } = useAuth0();
 
  const dispatch = useDispatch();
  const products = useSelector((state) => state.products);
@@ -30,7 +32,7 @@ function Home() {
   };
  }, [dispatch]);
 
- if (products.length < 1) {
+ if (products.length < 1 || isLoading) {
   return <Loading />;
  }
 

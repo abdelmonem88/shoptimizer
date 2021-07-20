@@ -1,8 +1,11 @@
 import { AiOutlineClose } from "react-icons/ai";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Sidebar({ toggleSidebar, setToggleSidebar }) {
+ const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
  return (
   <Wrapper>
    <div
@@ -34,11 +37,34 @@ function Sidebar({ toggleSidebar, setToggleSidebar }) {
      <h6>BROWSE</h6>
      <ul className='btn-wrapper'>
       <li>
-       <Link to='/'>My Acount</Link>
+       <button
+        className='sidebar__btn'
+        onClick={() => {
+         loginWithRedirect();
+        }}
+       >
+        {isAuthenticated ? (
+         <>Welcome, {user.given_name || user.nickname}</>
+        ) : (
+         <>Login</>
+        )}
+       </button>
       </li>
-      <li>
-       <Link to='/'>Checkout</Link>
-      </li>
+      {isAuthenticated && (
+       <li>
+        <button className='sidebar__btn'>Checkout</button>
+       </li>
+      )}
+      {isAuthenticated && (
+       <li>
+        <button
+         className='sidebar__btn'
+         onClick={() => logout({ returnTo: window.location.origin })}
+        >
+         Logout
+        </button>
+       </li>
+      )}
      </ul>
     </div>
    </div>
@@ -91,15 +117,18 @@ const Wrapper = styled.div`
    font-size: 20px;
    margin-bottom: 0.25rem;
   }
+  li button {
+   text-transform: capitalize;
+  }
 
-  li a {
+  /* li a {
    transition: var(--transition);
   }
 
   li:hover a {
    padding-left: 0.25rem;
    color: var(--orangeColor);
-  }
+  } */
 
   .close-icon {
    position: absolute;
@@ -116,6 +145,11 @@ const Wrapper = styled.div`
 
  a {
   color: var(--darkColor);
+ }
+
+ .sidebar__btn {
+  border: none;
+  background-color: #fff;
  }
 
  @media (min-width: 992px) {

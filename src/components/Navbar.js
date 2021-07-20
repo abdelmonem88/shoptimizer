@@ -3,8 +3,9 @@ import { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { IoIosAirplane } from "react-icons/io";
-import { BiUserCircle } from "react-icons/bi";
+import { BiUserCircle, BiLogOutCircle } from "react-icons/bi";
 import { FiArrowRightCircle } from "react-icons/fi";
+import { RiLogoutBoxRLine } from "react-icons/ri";
 import { BsBag } from "react-icons/bs";
 import { GoThreeBars } from "react-icons/go";
 import Logo from "../images/logo.webp";
@@ -12,8 +13,11 @@ import LogoSmall from "../images/logo_small.webp";
 import { Link } from "react-router-dom";
 import formatPrice from "../helpers/formatPrice";
 import { useHistory } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Navbar({ setToggleSidebar }) {
+ const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
  const [fixedNav, setFixedNav] = useState(false);
 
  let navBottom = useRef();
@@ -70,18 +74,40 @@ function Navbar({ setToggleSidebar }) {
         </Link>
        </div>
        <div className='list'>
-        <button className='text-center'>
+        <button
+         className='text-center'
+         onClick={() => {
+          loginWithRedirect();
+         }}
+        >
          <span className='icon'>
           <BiUserCircle />
          </span>
-         <h6>My Account</h6>
+         {isAuthenticated ? (
+          <h6>Welcome, {user.given_name || user.nickname}</h6>
+         ) : (
+          <h6>Login</h6>
+         )}
         </button>
-        <button className='text-center'>
-         <span className='icon'>
-          <FiArrowRightCircle />
-         </span>
-         <h6>Checkout</h6>
-        </button>
+        {isAuthenticated && (
+         <button className='text-center'>
+          <span className='icon'>
+           <FiArrowRightCircle />
+          </span>
+          <h6>Checkout</h6>
+         </button>
+        )}
+        {isAuthenticated && (
+         <button
+          className='text-center'
+          onClick={() => logout({ returnTo: window.location.origin })}
+         >
+          <span className='icon'>
+           <RiLogoutBoxRLine />
+          </span>
+          <h6>Log out</h6>
+         </button>
+        )}
        </div>
       </div>
      </div>
@@ -209,14 +235,15 @@ const Wrapper = styled.div`
      color: #404040;
      background: none;
      border: none;
+     margin-left: 0.75rem;
+
+     h6 {
+      text-transform: capitalize;
+     }
 
      .icon {
       font-size: 24px;
      }
-    }
-
-    button:nth-child(2) {
-     margin-left: 0.5rem;
     }
    }
   }
