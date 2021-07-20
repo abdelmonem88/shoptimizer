@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import { IoIosAirplane } from "react-icons/io";
-import { BiUserCircle, BiLogOutCircle } from "react-icons/bi";
+import { BiUserCircle } from "react-icons/bi";
 import { FiArrowRightCircle } from "react-icons/fi";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import { BsBag } from "react-icons/bs";
@@ -105,7 +105,7 @@ function Navbar({ setToggleSidebar }) {
           <span className='icon'>
            <RiLogoutBoxRLine />
           </span>
-          <h6>Log out</h6>
+          <h6>Logout</h6>
          </button>
         )}
        </div>
