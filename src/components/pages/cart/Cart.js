@@ -10,13 +10,14 @@ import { RiCloseCircleLine } from "react-icons/ri";
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from "react-icons/md";
 import formatPrice from "../../../helpers/formatPrice";
 import { toggleCartItemCount, deleteCartItem } from "../../../actions";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Cart() {
+ const { isAuthenticated, loginWithRedirect } = useAuth0();
  const [toggleSidebar, setToggleSidebar] = useState(false);
  const dispatch = useDispatch();
  const cart = useSelector((state) => state.cart);
  const shipingFees = 500;
-
  const totalPrices = cart.reduce((total, item) => {
   total = total + item.count * item.price;
   return total;
@@ -116,7 +117,13 @@ function Cart() {
          </div>
         </div>
         <div className='checkout_btn'>
-         <button className='btn'>Proceed to check out</button>
+         {isAuthenticated ? (
+          <button className='btn'>Proceed to check out</button>
+         ) : (
+          <button className='btn' onClick={() => loginWithRedirect()}>
+           Login
+          </button>
+         )}
         </div>
        </div>
       ) : null}
